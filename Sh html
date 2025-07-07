@@ -78,6 +78,65 @@
       .scroll-smooth {
         scroll-behavior: smooth;
       }
+
+      /* Estilos adicionales para el modal */
+      #laminadoModal {
+        backdrop-filter: blur(4px);
+      }
+      #laminadoModal .bg-white {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      /* Animación para las tarjetas de laminados */
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      /* Efecto de hover para las imágenes */
+      .card-hover img {
+        transition: transform 0.3s ease;
+      }
+      .card-hover:hover img {
+        transform: scale(1.05);
+      }
+      /* Estilos para la sección de muestras */
+      .video-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        border: 2px dashed #d1d5db;
+      }
+      .upload-icon {
+        width: 48px;
+        height: 48px;
+        color: #9ca3af;
+        margin-bottom: 12px;
+      }
     </style>
   </head>
   <body class="min-h-screen bg-white scroll-smooth">
@@ -95,12 +154,12 @@
             <p class="text-blue-100">Impresión de Alta Calidad</p>
           </div>
         </div>
-
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center space-x-8">
           <a href="#inicio" class="nav-link font-medium">Inicio</a>
           <a href="#servicios" class="nav-link font-medium">Servicios</a>
           <a href="#precios" class="nav-link font-medium">Lista de Precios</a>
+          <a href="#laminados" class="nav-link font-medium">Laminados</a>
           <a href="#app" class="nav-link font-medium">Descarga la App</a>
           <a href="#contacto" class="nav-link font-medium">Contacto</a>
           <button
@@ -110,7 +169,6 @@
             Cotizar Ahora
           </button>
         </nav>
-
         <!-- Contact Info Desktop -->
         <div class="hidden md:flex lg:hidden items-center space-x-6 text-sm">
           <div class="flex items-center space-x-2">
@@ -146,7 +204,6 @@
             <span>Lun-Vie 10am-7pm</span>
           </div>
         </div>
-
         <!-- Mobile Menu Button -->
         <button
           id="mobile-menu-btn"
@@ -167,7 +224,6 @@
           </svg>
         </button>
       </div>
-
       <!-- Mobile Navigation -->
       <div
         id="mobile-menu"
@@ -220,6 +276,11 @@
                 href="#precios"
                 class="mobile-nav-link block text-xl font-medium py-3 border-b border-blue-400"
                 >Lista de Precios</a
+              >
+              <a
+                href="#laminados"
+                class="mobile-nav-link block text-xl font-medium py-3 border-b border-blue-400"
+                >Laminados</a
               >
               <a
                 href="#app"
@@ -320,7 +381,6 @@
             Soluciones completas en artes gráficas para todas tus necesidades
           </p>
         </div>
-
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Konica Minolta Printing -->
           <div
@@ -529,7 +589,244 @@
         </div>
       </div>
     </section>
+    <!-- Nueva Sección: Muestras de Nuestros Servicios -->
+    <section id="muestras" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-bold text-gray-800 mb-4">
+            Muestras de Nuestros Servicios
+          </h3>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Observa la calidad y profesionalismo de nuestro trabajo a través de
+            estos videos demostrativos
+          </p>
+        </div>
 
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <!-- Cajas Personalizadas -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden card-hover transition-all"
+          >
+            <div class="p-6">
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-sh-blue rounded-lg flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-gray-800">
+                    Cajas Personalizadas
+                  </h4>
+                  <p class="text-gray-600 text-sm">
+                    Diseños únicos para tu marca
+                  </p>
+                </div>
+              </div>
+
+              <div class="video-container mb-4">
+                <iframe src="https://drive.google.com/file/d/11RYUySfryqvPgNRyY74z2ED4uDd-qrxK/preview" allow="autoplay"></iframe>              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600"
+                    >Diseños completamente personalizados</span
+                  >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600"
+                    >Materiales de alta calidad</span
+                  >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600"
+                    >Acabados profesionales</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acomodo de Etiquetas -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden card-hover transition-all"
+          >
+            <div class="p-6">
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-gray-800">
+                    Acomodo de Etiquetas
+                  </h4>
+                  <p class="text-gray-600 text-sm">
+                    Organización perfecta y precisa
+                  </p>
+                </div>
+              </div>
+
+              <div class="video-container mb-4">
+                <iframe src="https://drive.google.com/file/d/1dYGOTWnFLL81yoDueZbf72VbTmlt2q7U/preview" allow="autoplay"></iframe>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600">Alineación perfecta</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600"
+                    >Optimización de espacios</span
+                  >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600">Proceso eficiente</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stickers -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden card-hover transition-all"
+          >
+            <div class="p-6">
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-gray-800">Stickers</h4>
+                  <p class="text-gray-600 text-sm">Adhesivos de alta calidad</p>
+                </div>
+              </div>
+
+              <div class="video-container mb-4">
+                <iframe src="https://drive.google.com/file/d/1MRoY-8nuanNtPMthj1lyCebZIL0ADjhY/preview" allow="autoplay"></iframe>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600">Corte de precisión</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600">Adhesivo resistente</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600">Colores vibrantes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjetas de Presentación -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden card-hover transition-all"
+          >
+            <div class="p-6">
+              <div class="flex items-center space-x-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-gray-800">
+                    Tarjetas de Presentación
+                  </h4>
+                  <p class="text-gray-600 text-sm">
+                    Impresión profesional premium
+                  </p>
+                </div>
+              </div>
+
+              <div class="video-container mb-4">
+                <iframe src="https://drive.google.com/file/d/1izHmw78oAeR3BJFfQSlBCfjIPehDgoEk/preview" allow="autoplay"></iframe>              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600">Acabados de lujo</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600"
+                    >Papel de alta calidad</span
+                  >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span class="text-sm text-gray-600"
+                    >Diseños personalizados</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </section>
     <!-- Pricing Section -->
     <section id="precios" class="py-16 bg-white">
       <div class="container mx-auto px-6">
@@ -732,7 +1029,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="space-y-2">
                 <h5 class="font-semibold text-gray-800 mb-3">
                   Papeles Especiales
@@ -752,7 +1048,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="space-y-2">
                 <h5 class="font-semibold text-gray-800 mb-3">
                   Adhesivos y Vinilos
@@ -773,7 +1068,6 @@
                 </div>
               </div>
             </div>
-
             <div class="mt-6 grid md:grid-cols-2 gap-4">
               <div class="p-4 bg-green-50 rounded-lg">
                 <h6 class="font-semibold text-green-800 mb-2">
@@ -812,36 +1106,37 @@
         </div>
       </div>
     </section>
+
     <!-- Sección de Laminados -->
-    <section id="laminados" class="py-16 bg-white">
+    <section id="laminados" class="py-16 bg-gray-50">
       <div class="container mx-auto px-6">
         <div class="text-center mb-12">
           <h3 class="text-3xl font-bold text-gray-800 mb-4">
-            Catálogo de Laminados
+            Productos de NE
           </h3>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            Más de 25 tipos de laminado disponibles. Haz clic en cada laminado
+            Más de 30 tipos de laminado disponibles. Haz clic en cada laminado
             para ver precios y videos demostrativos
           </p>
         </div>
 
         <!-- Grid de Laminados -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <!-- Laminado Arcoíris -->
+          <!-- Arena 30cm x 50m -->
           <div
             class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
-            onclick="openLaminadoModal('arcoiris')"
+            onclick="openLaminadoModal('arena-30')"
           >
             <div class="relative">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arcoiris-wbSsdsANzSRDwIyPe91xIQAzn4laYb.jpeg"
-                alt="Laminado Arcoíris"
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Arena30cmx50m.jpeg"
+                alt="Laminado Arena 30cm x 50m"
                 class="w-full h-48 object-cover"
               />
               <div
                 class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
               >
-                33cm x 50m
+                30cm x 50m
               </div>
               <div
                 class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
@@ -850,8 +1145,8 @@
               </div>
             </div>
             <div class="p-4">
-              <h4 class="font-bold text-gray-800 mb-2">Laminado Arcoíris</h4>
-              <p class="text-gray-600 text-sm">Efecto holográfico multicolor</p>
+              <h4 class="font-bold text-gray-800 mb-2">Arena 30cm x 50m</h4>
+              <p class="text-gray-600 text-sm">Textura arena suave</p>
               <div class="flex items-center justify-between mt-3">
                 <span class="text-sh-blue font-semibold">Ver detalles</span>
                 <svg
@@ -871,15 +1166,35 @@
             </div>
           </div>
 
-          <!-- Placeholder para más laminados -->
+          <!-- Arena 33cm x 50m -->
           <div
-            class="bg-gray-100 rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer border-2 border-dashed border-gray-300"
-            onclick="alert('Próximamente más laminados disponibles')"
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('arena-33')"
           >
-            <div class="h-48 flex items-center justify-center">
-              <div class="text-center text-gray-500">
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Arena33cmx50m.jpeg"
+                alt="Laminado Arena 33cm x 50m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                33cm x 50m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Arena 33cm x 50m</h4>
+              <p class="text-gray-600 text-sm">Textura arena suave</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
                 <svg
-                  class="h-12 w-12 mx-auto mb-2"
+                  class="h-4 w-4 text-sh-blue"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -888,27 +1203,42 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    d="M9 5l7 7-7 7"
                   ></path>
                 </svg>
-                <p class="text-sm">Próximo laminado</p>
               </div>
-            </div>
-            <div class="p-4">
-              <h4 class="font-bold text-gray-600 mb-2">Más opciones</h4>
-              <p class="text-gray-500 text-sm">Próximamente disponible</p>
             </div>
           </div>
 
-          <!-- Más placeholders -->
+          <!-- Átomo -->
           <div
-            class="bg-gray-100 rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer border-2 border-dashed border-gray-300"
-            onclick="alert('Próximamente más laminados disponibles')"
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('atomo')"
           >
-            <div class="h-48 flex items-center justify-center">
-              <div class="text-center text-gray-500">
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Atomo.jpeg"
+                alt="Laminado Átomo"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                33cm x 50m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Átomo</h4>
+              <p class="text-gray-600 text-sm">Patrón atómico moderno</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
                 <svg
-                  class="h-12 w-12 mx-auto mb-2"
+                  class="h-4 w-4 text-sh-blue"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -917,26 +1247,42 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    d="M9 5l7 7-7 7"
                   ></path>
                 </svg>
-                <p class="text-sm">Próximo laminado</p>
               </div>
-            </div>
-            <div class="p-4">
-              <h4 class="font-bold text-gray-600 mb-2">Más opciones</h4>
-              <p class="text-gray-500 text-sm">Próximamente disponible</p>
             </div>
           </div>
 
+          <!-- Brillante 33cm x 50m -->
           <div
-            class="bg-gray-100 rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer border-2 border-dashed border-gray-300"
-            onclick="alert('Próximamente más laminados disponibles')"
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('brillante-33')"
           >
-            <div class="h-48 flex items-center justify-center">
-              <div class="text-center text-gray-500">
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Brillante33cmx50m.jpeg"
+                alt="Laminado Brillante 33cm x 50m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                33cm x 50m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Brillante 33cm x 50m</h4>
+              <p class="text-gray-600 text-sm">Acabado brillante clásico</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
                 <svg
-                  class="h-12 w-12 mx-auto mb-2"
+                  class="h-4 w-4 text-sh-blue"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -945,15 +1291,1154 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    d="M9 5l7 7-7 7"
                   ></path>
                 </svg>
-                <p class="text-sm">Próximo laminado</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brillante -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('brillante')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Brillante.jpeg"
+                alt="Laminado Brillante"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Estándar
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
               </div>
             </div>
             <div class="p-4">
-              <h4 class="font-bold text-gray-600 mb-2">Más opciones</h4>
-              <p class="text-gray-500 text-sm">Próximamente disponible</p>
+              <h4 class="font-bold text-gray-800 mb-2">Brillante</h4>
+              <p class="text-gray-600 text-sm">Acabado brillante estándar</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Círculo -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('circulo')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Circulo.jpeg"
+                alt="Laminado Círculo"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Círculo</h4>
+              <p class="text-gray-600 text-sm">Patrón de círculos</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Copo -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('copo')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Copo.jpeg"
+                alt="Laminado Copo"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Textura
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Copo</h4>
+              <p class="text-gray-600 text-sm">Textura de copos</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corazón Chico -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('corazon-chico')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Corazonchico.jpeg"
+                alt="Laminado Corazón Chico"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Corazón Chico</h4>
+              <p class="text-gray-600 text-sm">Patrón de corazones pequeños</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corazón Grande -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('corazon-grande')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/CorazonGrande.jpeg"
+                alt="Laminado Corazón Grande"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Corazón Grande</h4>
+              <p class="text-gray-600 text-sm">Patrón de corazones grandes</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cuadro -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('cuadro')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Cuadro.jpeg"
+                alt="Laminado Cuadro"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Cuadro</h4>
+              <p class="text-gray-600 text-sm">Patrón de cuadros</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destello -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('destello')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Destello.jpeg"
+                alt="Laminado Destello"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Holográfico
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Destello</h4>
+              <p class="text-gray-600 text-sm">Efecto de destello brillante</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Escamas -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('escamas')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Escamas.jpeg"
+                alt="Laminado Escamas"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Textura
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Escamas</h4>
+              <p class="text-gray-600 text-sm">Textura de escamas</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Estrella -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('estrella')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Estrella.jpeg"
+                alt="Laminado Estrella"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Estrella</h4>
+              <p class="text-gray-600 text-sm">Patrón de estrellas</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flor -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('flor')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Flor.jpeg"
+                alt="Laminado Flor"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Flor</h4>
+              <p class="text-gray-600 text-sm">Patrón floral</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foil Mariposa -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('foil-mariposa')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Foilmariposa.jpeg"
+                alt="Foil Mariposa"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Foil
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Foil Mariposa</h4>
+              <p class="text-gray-600 text-sm">Foil con patrón de mariposas</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jaspeado -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('jaspeado')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Jaspeado.jpeg"
+                alt="Laminado Jaspeado"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Textura
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Jaspeado</h4>
+              <p class="text-gray-600 text-sm">Efecto jaspeado</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Led -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('led')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Led.jpeg"
+                alt="Laminado Led"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Especial
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Led</h4>
+              <p class="text-gray-600 text-sm">Efecto luminoso</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lentejuela -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('lentejuela')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Lentejuela.jpeg"
+                alt="Laminado Lentejuela"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Holográfico
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Lentejuela</h4>
+              <p class="text-gray-600 text-sm">Efecto de lentejuelas</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Líneas -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('lineas')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Lineas.jpeg"
+                alt="Laminado Líneas"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Líneas</h4>
+              <p class="text-gray-600 text-sm">Patrón de líneas</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lino 30cm x 50m -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('lino-30')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Lino30cmx50m.jpeg"
+                alt="Laminado Lino 30cm x 50m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                30cm x 50m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Lino 30cm x 50m</h4>
+              <p class="text-gray-600 text-sm">Textura de lino</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mariposa -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('mariposa')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Mariposa.jpeg"
+                alt="Laminado Mariposa"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Patrón
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Mariposa</h4>
+              <p class="text-gray-600 text-sm">Patrón de mariposas</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mate 30 x 200m -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('mate-30-200')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Mate30x200m.jpeg"
+                alt="Laminado Mate 30 x 200m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                30cm x 200m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Mate 30 x 200m</h4>
+              <p class="text-gray-600 text-sm">Acabado mate rollo grande</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mate 33 x 200m -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('mate-33-200')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Mate33x200m.jpeg"
+                alt="Laminado Mate 33 x 200m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                33cm x 200m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Mate 33 x 200m</h4>
+              <p class="text-gray-600 text-sm">Acabado mate rollo grande</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mate Anti Raya -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('mate-anti-raya')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Mateantiraya.jpeg"
+                alt="Laminado Mate Anti Raya"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Especial
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Mate Anti Raya</h4>
+              <p class="text-gray-600 text-sm">Mate resistente a rayones</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Piel 30cm x 50m -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('piel-30')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Piel30cmx50m.jpeg"
+                alt="Laminado Piel 30cm x 50m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                30cm x 50m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Piel 30cm x 50m</h4>
+              <p class="text-gray-600 text-sm">Textura de piel</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft 30cm x 50m -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('soft-30')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Soft30cmx50m.jpeg"
+                alt="Laminado Soft 30cm x 50m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                30cm x 50m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Soft 30cm x 50m</h4>
+              <p class="text-gray-600 text-sm">Soft touch suave</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft 33cm x 50m -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('soft-33')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Soft33cmx50.jpeg"
+                alt="Laminado Soft 33cm x 50m"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                33cm x 50m
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Soft 33cm x 50m</h4>
+              <p class="text-gray-600 text-sm">Soft touch suave</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Negro -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('soft-negro')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Softnegro.jpeg"
+                alt="Laminado Soft Negro"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Negro
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Soft Negro</h4>
+              <p class="text-gray-600 text-sm">Soft touch color negro</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ultra Adherente -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('ultra-adherente')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Ultraadherente.jpeg"
+                alt="Laminado Ultra Adherente"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Especial
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Ultra Adherente</h4>
+              <p class="text-gray-600 text-sm">Máxima adherencia</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vidrio -->
+          <div
+            class="bg-white rounded-lg shadow-md card-hover transition-all overflow-hidden cursor-pointer"
+            onclick="openLaminadoModal('vidrio')"
+          >
+            <div class="relative">
+              <img
+                src="https://www.shartesgraficas.shop/apiv3/root/scratch/Vidrio.jpeg"
+                alt="Laminado Vidrio"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute top-2 right-2 bg-sh-blue text-white px-2 py-1 rounded-full text-xs font-semibold"
+              >
+                Transparente
+              </div>
+              <div
+                class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs"
+              >
+                Clic para ver precio
+              </div>
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-gray-800 mb-2">Vidrio</h4>
+              <p class="text-gray-600 text-sm">Efecto cristal transparente</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-sh-blue font-semibold">Ver detalles</span>
+                <svg
+                  class="h-4 w-4 text-sh-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -967,7 +2452,7 @@
               ¿Necesitas un laminado específico?
             </h4>
             <p class="mb-6 text-blue-100">
-              Contamos con más de 25 tipos diferentes de laminado. Contáctanos
+              Contamos con más de 30 tipos diferentes de laminado. Contáctanos
               para conocer todas las opciones disponibles.
             </p>
             <button
@@ -1014,7 +2499,6 @@
             </svg>
           </button>
         </div>
-
         <div class="p-6">
           <div class="grid lg:grid-cols-2 gap-8">
             <!-- Imagen del producto -->
@@ -1029,7 +2513,6 @@
                 <!-- Especificaciones se llenarán dinámicamente -->
               </div>
             </div>
-
             <!-- Información y precios -->
             <div>
               <div class="bg-sh-blue text-white rounded-lg p-6 mb-6">
@@ -1038,7 +2521,6 @@
                   <!-- Precios se llenarán dinámicamente -->
                 </div>
               </div>
-
               <!-- Video demostrativo -->
               <div class="bg-gray-50 rounded-lg p-4">
                 <h5 class="font-bold text-gray-800 mb-3">Video Demostrativo</h5>
@@ -1055,7 +2537,6 @@
                   </video>
                 </div>
               </div>
-
               <!-- Botón de cotización -->
               <div class="mt-6">
                 <button
@@ -1070,153 +2551,6 @@
         </div>
       </div>
     </div>
-
-    <script>
-      // Datos de los laminados
-      const laminadosData = {
-        arcoiris: {
-          title: "Laminado Arcoíris",
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arcoiris-wbSsdsANzSRDwIyPe91xIQAzn4laYb.jpeg",
-          video:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arcoiris-CKKpc3Egl3LvTq1xET2lE3YhSTP2fR.mp4",
-          specs: {
-            Tamaño: "33cm x 50m",
-            Tipo: "Holográfico multicolor",
-            Acabado: "Brillante con efecto arcoíris",
-            Aplicación:
-              "Ideal para tarjetas, invitaciones y material promocional",
-          },
-          prices: [
-            { size: "Por tabloide (33x47.5 cm)", price: "$12 - $18" },
-            { size: "Por metro lineal", price: "$8 - $12" },
-            { size: "Rollo completo (50m)", price: "$350 - $450" },
-          ],
-        },
-        // Aquí puedes agregar más laminados siguiendo la misma estructura
-      };
-
-      // Función para abrir el modal
-      function openLaminadoModal(laminadoId) {
-        const laminado = laminadosData[laminadoId];
-        if (!laminado) return;
-
-        const modal = document.getElementById("laminadoModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalImage = document.getElementById("modalImage");
-        const modalVideo = document.getElementById("modalVideo");
-        const modalSpecs = document.getElementById("modalSpecs");
-        const modalPrices = document.getElementById("modalPrices");
-
-        // Llenar contenido del modal
-        modalTitle.textContent = laminado.title;
-        modalImage.src = laminado.image;
-        modalImage.alt = laminado.title;
-        modalVideo.src = laminado.video;
-
-        // Llenar especificaciones
-        modalSpecs.innerHTML = `
-    <h5 class="font-bold text-gray-800 mb-3">Especificaciones</h5>
-    ${Object.entries(laminado.specs)
-      .map(
-        ([key, value]) => `
-      <div class="flex justify-between py-2 border-b border-gray-200 last:border-b-0">
-        <span class="font-medium text-gray-700">${key}:</span>
-        <span class="text-gray-600">${value}</span>
-      </div>
-    `
-      )
-      .join("")}
-  `;
-
-        // Llenar precios
-        modalPrices.innerHTML = laminado.prices
-          .map(
-            (price) => `
-    <div class="flex justify-between items-center">
-      <span>${price.size}</span>
-      <span class="font-bold text-lg">${price.price}</span>
-    </div>
-  `
-          )
-          .join("");
-
-        // Mostrar modal
-        modal.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-      }
-
-      // Función para cerrar el modal
-      function closeLaminadoModal() {
-        const modal = document.getElementById("laminadoModal");
-        const modalVideo = document.getElementById("modalVideo");
-
-        modal.classList.add("hidden");
-        modalVideo.pause();
-        document.body.style.overflow = "auto";
-      }
-
-      // Función para cotizar laminado
-      function cotizarLaminado() {
-        closeLaminadoModal();
-        scrollToSection("contacto");
-
-        // Pre-llenar el formulario si existe
-        const serviceSelect = document.getElementById("service");
-        if (serviceSelect) {
-          serviceSelect.value = "laminado";
-        }
-
-        const messageTextarea = document.getElementById("message");
-        if (messageTextarea) {
-          messageTextarea.value =
-            "Estoy interesado en cotizar el laminado que vi en el catálogo. ";
-        }
-      }
-
-      // Cerrar modal al hacer clic fuera de él
-      document
-        .getElementById("laminadoModal")
-        .addEventListener("click", function (e) {
-          if (e.target === this) {
-            closeLaminadoModal();
-          }
-        });
-
-      // Cerrar modal con tecla Escape
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          closeLaminadoModal();
-        }
-      });
-    </script>
-
-    <style>
-      /* Estilos adicionales para el modal */
-      #laminadoModal {
-        backdrop-filter: blur(4px);
-      }
-
-      #laminadoModal .bg-white {
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      }
-
-      /* Animación para las tarjetas de laminados */
-      .card-hover:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-
-      /* Efecto de hover para las imágenes */
-      .card-hover img {
-        transition: transform 0.3s ease;
-      }
-
-      .card-hover:hover img {
-        transform: scale(1.05);
-      }
-    </style>
 
     <!-- Loyalty Program / App Section -->
     <section
@@ -1591,7 +2925,6 @@
         </div>
       </div>
     </section>
-
     <!-- Video Section -->
     <section id="video" class="py-16 bg-gray-50">
       <div class="container mx-auto px-6">
@@ -1627,7 +2960,6 @@
             Estamos aquí para ayudarte con todos tus proyectos
           </p>
         </div>
-
         <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <svg
@@ -1656,7 +2988,6 @@
               06800 Ciudad de México, CDMX
             </p>
           </div>
-
           <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <svg
               class="h-12 w-12 text-sh-blue mx-auto mb-4"
@@ -1681,7 +3012,6 @@
               </a>
             </p>
           </div>
-
           <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <svg
               class="h-12 w-12 text-sh-blue mx-auto mb-4"
@@ -1825,6 +3155,7 @@
           <div class="text-center md:text-right">
             <p class="text-blue-100 text-sm">
               © 2024 SH Artes Gráficas. Todos los derechos reservados.
+              Desarrollado por MyApp®
             </p>
           </div>
         </div>
@@ -1832,6 +3163,531 @@
     </footer>
 
     <script>
+      // Datos de los laminados - NOMBRES EXACTOS DE TUS ARCHIVOS
+      const laminadosData = {
+        "arena-30": {
+          title: "Arena 30cm x 50m",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Arena30cmx50m.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Arena.mp4",
+          specs: {
+            Tamaño: "30cm x 50m",
+            Tipo: "Textura arena",
+            Acabado: "Mate con textura suave",
+            Aplicación: "Ideal para tarjetas y material promocional",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$280 - $380" },
+          ],
+        },
+        "arena-33": {
+          title: "Arena 33cm x 50m",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Arena33cmx50m.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Arena33cmx50m.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Textura arena",
+            Acabado: "Mate con textura suave",
+            Aplicación: "Ideal para tarjetas y material promocional",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$300 - $400" },
+          ],
+        },
+        atomo: {
+          title: "Átomo",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Atomo.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Atomo.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón atómico",
+            Acabado: "Holográfico con patrón moderno",
+            Aplicación: "Perfecto para diseños contemporáneos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        "brillante-33": {
+          title: "Brillante 33cm x 50m",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Brillante33cmx50m.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Brillante33cmx200m.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Acabado brillante",
+            Acabado: "Brillante clásico",
+            Aplicación: "Uso general para todo tipo de proyectos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$3 - $5" },
+            { size: "Por metro lineal", price: "$2 - $4" },
+            { size: "Rollo completo (50m)", price: "$180 - $250" },
+          ],
+        },
+        brillante: {
+          title: "Brillante",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Brillante.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Brillante.mp4",
+          specs: {
+            Tamaño: "Estándar",
+            Tipo: "Acabado brillante",
+            Acabado: "Brillante estándar",
+            Aplicación: "Uso general para todo tipo de proyectos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$3 - $5" },
+            { size: "Por metro lineal", price: "$2 - $4" },
+          ],
+        },
+        circulo: {
+          title: "Círculo",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Circulo.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Circulo.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón geométrico",
+            Acabado: "Patrón de círculos",
+            Aplicación: "Ideal para diseños modernos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        copo: {
+          title: "Copo",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Copo.jpeg",
+          video: "https://www.shartesgraficas.shop/apiv3/root/scratch/Copo.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Textura especial",
+            Acabado: "Textura de copos",
+            Aplicación: "Perfecto para acabados únicos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$350 - $450" },
+          ],
+        },
+        "corazon-chico": {
+          title: "Corazón Chico",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Corazonchico.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Corazonchico.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón decorativo",
+            Acabado: "Patrón de corazones pequeños",
+            Aplicación: "Ideal para invitaciones y tarjetas románticas",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        "corazon-grande": {
+          title: "Corazón Grande",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/CorazonGrande.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Corazongrande.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón decorativo",
+            Acabado: "Patrón de corazones grandes",
+            Aplicación: "Ideal para invitaciones y tarjetas románticas",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        cuadro: {
+          title: "Cuadro",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Cuadro.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Cuadrado.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón geométrico",
+            Acabado: "Patrón de cuadros",
+            Aplicación: "Perfecto para diseños clásicos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        destello: {
+          title: "Destello",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Destello.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Destellos.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Holográfico",
+            Acabado: "Efecto de destello brillante",
+            Aplicación: "Ideal para proyectos llamativos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$350 - $450" },
+          ],
+        },
+        escamas: {
+          title: "Escamas",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Escamas.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Escamas.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Textura especial",
+            Acabado: "Textura de escamas",
+            Aplicación: "Perfecto para acabados únicos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$350 - $450" },
+          ],
+        },
+        estrella: {
+          title: "Estrella",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Estrella.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Estrella.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón decorativo",
+            Acabado: "Patrón de estrellas",
+            Aplicación: "Ideal para proyectos festivos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        flor: {
+          title: "Flor",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Flor.jpeg",
+          video: "https://www.shartesgraficas.shop/apiv3/root/scratch/Flor.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón floral",
+            Acabado: "Patrón floral elegante",
+            Aplicación: "Perfecto para invitaciones y tarjetas",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        "foil-mariposa": {
+          title: "Foil Mariposa",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Foilmariposa.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Foilmariposa.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Foil especial",
+            Acabado: "Foil con patrón de mariposas",
+            Aplicación: "Ideal para acabados premium",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$27 - $40" },
+            { size: "Por metro lineal", price: "$20 - $30" },
+            { size: "Rollo completo (50m)", price: "$800 - $1200" },
+          ],
+        },
+        jaspeado: {
+          title: "Jaspeado",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Jaspeado.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Jaspeado.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Textura especial",
+            Acabado: "Efecto jaspeado",
+            Aplicación: "Perfecto para acabados elegantes",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$350 - $450" },
+          ],
+        },
+        led: {
+          title: "Led",
+          image: "https://www.shartesgraficas.shop/apiv3/root/scratch/Led.jpeg",
+          video: "https://www.shartesgraficas.shop/apiv3/root/scratch/Led.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Efecto especial",
+            Acabado: "Efecto luminoso",
+            Aplicación: "Ideal para proyectos modernos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$10 - $16" },
+            { size: "Por metro lineal", price: "$8 - $12" },
+            { size: "Rollo completo (50m)", price: "$400 - $500" },
+          ],
+        },
+        lentejuela: {
+          title: "Lentejuela",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Lentejuela.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Lentejuela.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Holográfico",
+            Acabado: "Efecto de lentejuelas",
+            Aplicación: "Perfecto para proyectos festivos",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$350 - $450" },
+          ],
+        },
+        lineas: {
+          title: "Líneas",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Lineas.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Lineas.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón geométrico",
+            Acabado: "Patrón de líneas",
+            Aplicación: "Ideal para diseños minimalistas",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        "lino-30": {
+          title: "Lino 30cm x 50m",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Lino30cmx50m.jpeg",
+          video: "https://www.shartesgraficas.shop/apiv3/root/scratch/Lino.mp4",
+          specs: {
+            Tamaño: "30cm x 50m",
+            Tipo: "Textura natural",
+            Acabado: "Textura de lino",
+            Aplicación: "Perfecto para acabados elegantes",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$10 - $18" },
+            { size: "Por metro lineal", price: "$8 - $14" },
+            { size: "Rollo completo (50m)", price: "$400 - $600" },
+          ],
+        },
+        mariposa: {
+          title: "Mariposa",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Mariposa.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Mariposa.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Patrón decorativo",
+            Acabado: "Patrón de mariposas",
+            Aplicación: "Ideal para proyectos delicados",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$7 - $13" },
+            { size: "Por metro lineal", price: "$5 - $9" },
+            { size: "Rollo completo (50m)", price: "$320 - $420" },
+          ],
+        },
+        "mate-30-200": {
+          title: "Mate 30 x 200m",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Mate30x200m.jpeg",
+          video: "https://www.shartesgraficas.shop/apiv3/root/scratch/Mate.mp4",
+          specs: {
+            Tamaño: "30cm x 200m",
+            Tipo: "Acabado mate",
+            Acabado: "Mate rollo grande",
+            Aplicación: "Ideal para grandes volúmenes",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$3 - $5" },
+            { size: "Por metro lineal", price: "$2 - $4" },
+            { size: "Rollo completo (200m)", price: "$500 - $700" },
+          ],
+        },
+        "mate-33-200": {
+          title: "Mate 33 x 200m",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Mate33x200m.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Mate33x200m.mp4",
+          specs: {
+            Tamaño: "33cm x 200m",
+            Tipo: "Acabado mate",
+            Acabado: "Mate rollo grande",
+            Aplicación: "Ideal para grandes volúmenes",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$3 - $5" },
+            { size: "Por metro lineal", price: "$2 - $4" },
+            { size: "Rollo completo (200m)", price: "$550 - $750" },
+          ],
+        },
+        "mate-anti-raya": {
+          title: "Mate Anti Raya",
+          image:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Mateantiraya.jpeg",
+          video:
+            "https://www.shartesgraficas.shop/apiv3/root/scratch/Mateantiraya.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Mate especial",
+            Acabado: "Mate resistente a rayones",
+            Aplicación: "Perfecto para uso intensivo",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$5 - $9" },
+            { size: "Por metro lineal", price: "$4 - $7" },
+            { size: "Rollo completo (50m)", price: "$250 - $350" },
+          ],
+        },
+        "piel-30": {
+          title: "Piel 30cm x 50m",
+          image: "Piel 30cm x 50m.jpeg",
+          video: "Piel 30cm x 50m.mp4",
+          specs: {
+            Tamaño: "30cm x 50m",
+            Tipo: "Textura natural",
+            Acabado: "Textura de piel",
+            Aplicación: "Ideal para acabados premium",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$10 - $18" },
+            { size: "Por metro lineal", price: "$8 - $14" },
+            { size: "Rollo completo (50m)", price: "$400 - $600" },
+          ],
+        },
+        "soft-30": {
+          title: "Soft 30cm x 50m",
+          image: "Soft 30cm x 50m.jpeg",
+          video: "Soft 30cm x 50m.mp4",
+          specs: {
+            Tamaño: "30cm x 50m",
+            Tipo: "Soft touch",
+            Acabado: "Suave al tacto",
+            Aplicación: "Perfecto para acabados premium",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$350 - $450" },
+          ],
+        },
+        "soft-33": {
+          title: "Soft 33cm x 50m",
+          image: "Soft 33cm x 50m.jpeg",
+          video: "Soft 33cm x 50m.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Soft touch",
+            Acabado: "Suave al tacto",
+            Aplicación: "Perfecto para acabados premium",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$380 - $480" },
+          ],
+        },
+        "soft-negro": {
+          title: "Soft Negro",
+          image: "Soft Negro.jpeg",
+          video: "Soft Negro.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Soft touch",
+            Acabado: "Suave al tacto color negro",
+            Aplicación: "Ideal para acabados elegantes",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$8 - $14" },
+            { size: "Por metro lineal", price: "$6 - $10" },
+            { size: "Rollo completo (50m)", price: "$380 - $480" },
+          ],
+        },
+        "ultra-adherente": {
+          title: "Ultra Adherente",
+          image: "Ultra Adherente.jpeg",
+          video: "Ultra Adherente.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Adhesivo especial",
+            Acabado: "Máxima adherencia",
+            Aplicación: "Perfecto para uso intensivo",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$5 - $9" },
+            { size: "Por metro lineal", price: "$4 - $7" },
+            { size: "Rollo completo (50m)", price: "$250 - $350" },
+          ],
+        },
+        vidrio: {
+          title: "Vidrio",
+          image: "Vidrio.jpeg",
+          video: "Vidrio.mp4",
+          specs: {
+            Tamaño: "33cm x 50m",
+            Tipo: "Efecto transparente",
+            Acabado: "Efecto cristal transparente",
+            Aplicación: "Ideal para efectos especiales",
+          },
+          prices: [
+            { size: "Por tabloide (33x47.5 cm)", price: "$9 - $15" },
+            { size: "Por metro lineal", price: "$7 - $11" },
+            { size: "Rollo completo (50m)", price: "$380 - $480" },
+          ],
+        },
+      };
+
       // Mobile menu functionality
       const mobileMenuBtn = document.getElementById("mobile-menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
@@ -1875,6 +3731,102 @@
         });
       });
 
+      // Función para abrir el modal de laminados
+      function openLaminadoModal(laminadoId) {
+        const laminado = laminadosData[laminadoId];
+        if (!laminado) {
+          alert(
+            "Información de este laminado próximamente disponible. Contáctanos para más detalles."
+          );
+          return;
+        }
+
+        const modal = document.getElementById("laminadoModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalImage = document.getElementById("modalImage");
+        const modalVideo = document.getElementById("modalVideo");
+        const modalSpecs = document.getElementById("modalSpecs");
+        const modalPrices = document.getElementById("modalPrices");
+
+        // Llenar contenido del modal
+        modalTitle.textContent = laminado.title;
+        modalImage.src = laminado.image;
+        modalImage.alt = laminado.title;
+        modalVideo.src = laminado.video;
+
+        // Llenar especificaciones
+        modalSpecs.innerHTML = `
+          <h5 class="font-bold text-gray-800 mb-3">Especificaciones</h5>
+          ${Object.entries(laminado.specs)
+            .map(
+              ([key, value]) => `
+            <div class="flex justify-between py-2 border-b border-gray-200 last:border-b-0">
+              <span class="font-medium text-gray-700">${key}:</span>
+              <span class="text-gray-600">${value}</span>
+            </div>
+          `
+            )
+            .join("")}
+        `;
+
+        // Llenar precios
+        modalPrices.innerHTML = laminado.prices
+          .map(
+            (price) => `
+          <div class="flex justify-between items-center">
+            <span>${price.size}</span>
+            <span class="font-bold text-lg">${price.price}</span>
+          </div>
+        `
+          )
+          .join("");
+
+        // Mostrar modal
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      // Función para cerrar el modal
+      function closeLaminadoModal() {
+        const modal = document.getElementById("laminadoModal");
+        const modalVideo = document.getElementById("modalVideo");
+        modal.classList.add("hidden");
+        modalVideo.pause();
+        document.body.style.overflow = "auto";
+      }
+
+      // Función para cotizar laminado
+      function cotizarLaminado() {
+        closeLaminadoModal();
+        scrollToSection("contacto");
+        // Pre-llenar el formulario si existe
+        const serviceSelect = document.getElementById("service");
+        if (serviceSelect) {
+          serviceSelect.value = "laminado";
+        }
+        const messageTextarea = document.getElementById("message");
+        if (messageTextarea) {
+          messageTextarea.value =
+            "Estoy interesado en cotizar el laminado que vi en el catálogo. ";
+        }
+      }
+
+      // Cerrar modal al hacer clic fuera de él
+      document
+        .getElementById("laminadoModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeLaminadoModal();
+          }
+        });
+
+      // Cerrar modal con tecla Escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeLaminadoModal();
+        }
+      });
+
       // Download app function
       function downloadApp() {
         alert(
@@ -1887,16 +3839,13 @@
         .getElementById("contact-form")
         .addEventListener("submit", function (e) {
           e.preventDefault();
-
           // Get form data
           const formData = new FormData(this);
           const data = Object.fromEntries(formData);
-
           // Simulate form submission
           alert(
             `¡Gracias ${data.name}! Hemos recibido tu solicitud de cotización para ${data.service}. Nos pondremos en contacto contigo pronto al ${data.phone}.`
           );
-
           // Reset form
           this.reset();
         });
@@ -1905,8 +3854,8 @@
       window.addEventListener("scroll", () => {
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll(".nav-link");
-
         let current = "";
+
         sections.forEach((section) => {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.clientHeight;
